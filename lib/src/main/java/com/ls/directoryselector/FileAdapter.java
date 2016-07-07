@@ -7,30 +7,48 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.ls.directoryselector.utils.DirectoryFileFilter;
+
 import java.io.File;
 import java.util.List;
+import java.util.Locale;
 
 class FileAdapter extends ArrayAdapter<File> {
 
+	private Context context;
 	private final LayoutInflater inflater;
 
 	public FileAdapter(Context context, List<File> files) {
 		super(context, 0, files);
+		this.context = context;
 		inflater = LayoutInflater.from(context);
 	}
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		TextView textView = (TextView) convertView;
-		if (textView == null) textView = (TextView) inflater.inflate(android.R.layout.simple_list_item_1, null);
+		ViewHolder viewHolder;
+		if (convertView == null) {
+			viewHolder = new ViewHolder();
+			convertView = inflater.inflate(R.layout.list_item_folder, parent, false);
+			viewHolder.folderName = (TextView) convertView.findViewById(R.id.textview_folder_name);
+			viewHolder.dirsInside = (TextView) convertView.findViewById(R.id.textview_dirs_inside);
+			convertView.setTag(viewHolder);
+		} else {
+			viewHolder = (ViewHolder) convertView.getTag();
+		}
 
-		File entry = getItem(position);
-		fillViews(textView, entry);
+		File fileItem = getItem(position);
 
-		return textView;
+		int dirsInside = fileItem.listFiles(new DirectoryFileFilter()).length;
+		String dirPlural = context.getResources().getQuantityString(R.plurals.plural_dirs, dirsInside);
+
+		viewHolder.folderName.setText(fileItem.getName());
+		viewHolder.dirsInside.setText(String.format(Locale.getDefault(), "%d %s", dirsInside, dirPlural));
+		return convertView;
 	}
 
-	private void fillViews(TextView text, File file) {
-		text.setText(file.getName());
+	private static class ViewHolder {
+		TextView folderName;
+		TextView dirsInside;
 	}
 }
