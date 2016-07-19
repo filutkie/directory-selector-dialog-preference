@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- General -->
+    <string name="folder_is_empty">Папка пустая</string>
+    <string name="no_dir_selected">Папка не выбрана</string>
+    <string name="selected_folder">Выбранная папка:</string>
+
+    <!-- Actions -->
+    <string name="new_folder">Создать новую папку</string>
+    <string name="folder_new_name">Введите название папки</string>
+    <string name="up">Вверх</string>
+    <string name="select">Выбрать</string>
+    <string name="create">Создать</string>
+    <string name="cancel">Отмена</string>
+
+    <!-- Errors -->
+    <string name="error_already_exists">Папка уже существует</string>
+    <string name="error_cant_create_folder">Невозможно создать папку</string>
+    <string name="error_no_write_access">Невозможно записать в эту папку</string>
+
+    <!-- Plurals -->
+    <plurals name="plural_dirs">
+        <item quantity="zero">папок</item>
+        <item quantity="one">папка</item>
+        <item quantity="two">папки</item>
+        <item quantity="few">папки</item>
+        <item quantity="many">папок</item>
+        <item quantity="other">папок</item>
+    </plurals>
+
+</resources>
