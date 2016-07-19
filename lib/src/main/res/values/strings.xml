@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- General -->
     <string name="selected_folder">Selected folder:</string>
-    <string name="create_folder">Create folder</string>
-    <string name="create_folder_msg">Enter folder name</string>
-    <string name="no_write_access">Cannot write to this folder</string>
-    <string name="error_already_exists">Folder already exists</string>
-    <string name="create_folder_error">Could not create folder</string>
-    <string name="up">Up</string>
-    <string name="empty_list">Empty</string>
+    <string name="folder_is_empty">Folder is empty</string>
     <string name="no_dir_selected">No directory selected</string>
+
+    <!-- Actions -->
+    <string name="new_folder">Create new folder</string>
+    <string name="folder_new_name">Enter folder name</string>
+    <string name="up">Up</string>
+    <string name="select">Select</string>
+    <string name="create">Create</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Errors -->
+    <string name="error_already_exists">Folder already exists</string>
+    <string name="error_no_write_access">Can\'t write to this folder</string>
+    <string name="error_cant_create_folder">Can\'t create new folder</string>
+
+    <!-- Plurals -->
+    <plurals name="plural_dirs">
+        <item quantity="zero">dirs</item>
+        <item quantity="one">dir</item>
+        <item quantity="few">dirs</item>
+        <item quantity="many">dirs</item>
+        <item quantity="other">dirs</item>
+    </plurals>
 
 </resources>
